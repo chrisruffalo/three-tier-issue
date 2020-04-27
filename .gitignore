@@ -1,0 +1,9 @@
+# ignore transient
+wildfly
+wildfly/**
+*.jks
+
+# ignore ide
+*.iml
+.idea
+.idea/**

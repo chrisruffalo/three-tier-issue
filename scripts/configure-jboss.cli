@@ -1,0 +1,19 @@
+# embed the right server configuration
+embed-server --server-config=standalone-ssl.xml
+
+# see also: https://access.redhat.com/solutions/3585301
+/subsystem=elytron/authentication-configuration=ejb-auth:add(authentication-name="ejb", credential-reference={clear-text="ejb"})
+/subsystem=elytron/authentication-context=default:add(match-rules=[{authentication-configuration=ejb-auth}])
+/subsystem=elytron:write-attribute(name=default-authentication-context,value=default)
+
+# from: https://docs.wildfly.org/18/WildFly_Elytron_Security.html#configure-ssltls
+
+# create an elytron https config using the keystore
+/subsystem=elytron/key-store=httpsKS:add(path=${env.EAP_KEYSTORE},credential-reference={clear-text=locked},type=JKS)
+/subsystem=elytron/key-manager=httpsKM:add(key-store=httpsKS,credential-reference={clear-text=locked})
+/subsystem=elytron/server-ssl-context=httpsSSC:add(key-manager=httpsKM,protocols=["TLSv1.2"])
+
+batch
+/subsystem=undertow/server=default-server/https-listener=https:undefine-attribute(name=security-realm)
+/subsystem=undertow/server=default-server/https-listener=https:write-attribute(name=ssl-context,value=httpsSSC)
+run-batch

@@ -1,0 +1,10 @@
+<module name="com.tier.api" xmlns="urn:jboss:module:1.6">
+    <resources>
+        <resource-root path="tier-api-1.0-SNAPSHOT.jar"/>
+    </resources>
+
+    <dependencies>
+        <module name="org.slf4j"/>
+        <module name="javaee.api"/>
+    </dependencies>
+</module>
