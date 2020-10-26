@@ -9,5 +9,5 @@ openssl x509 -inform der -in localhost.der -out localhost.pem
 keytool -importcert -noprompt -file localhost.pem -alias localhost -keystore truststore.jks -storepass locked
 
 # remove leftover files
-rm localhost.dr
+rm localhost.der
 rm localhost.pem

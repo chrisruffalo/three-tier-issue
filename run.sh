@@ -1,10 +1,10 @@
 # run each eap
 
 # export keystore location so it can be used in elytron config too
-EAP_KEYSTORE=$(realpath ./keystore.jks)
+EAP_KEYSTORE=$(realpath ./keystore.jks || echo "$(pwd)/keystore.jks")
 export EAP_KEYSTORE
 
-EAP_TRUSTSTORE=$(realpath ./truststore.jks)
+EAP_TRUSTSTORE=$(realpath ./truststore.jks || echo "$(pwd)/truststore.jks")
 export EAP_TRUSTSTORE
 
 # shared args

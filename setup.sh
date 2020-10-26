@@ -10,6 +10,9 @@ if [[ ! -f "./keystore.jks" && ! -f "./truststore.jks" ]]; then
   $(which bash) scripts/pki-init.sh
 fi
 
+# add user
+wildfly/bin/add-user.sh -a -u ejb -p ejb -e
+
 # configure eap
 if [[ -f "widlfly/standalone/configuration/standalone-ssl.xml" ]]; then
   rm widlfly/standalone/configuration/standalone-ssl.xml
@@ -17,7 +20,7 @@ fi
 cp wildfly/standalone/configuration/standalone.xml wildfly/standalone/configuration/standalone-ssl.xml
 
 # export keystore location so it can be used in elytron config too
-EAP_KEYSTORE=$(realpath ./keystore.jks)
+EAP_KEYSTORE=$(realpath ./keystore.jks || echo "$(pwd)/keystore.jks")
 export EAP_KEYSTORE
 
 # execute the cli script

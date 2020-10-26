@@ -1,7 +1,13 @@
 # ignore transient
 wildfly
 wildfly/**
+eap73
+eap73/**
 *.jks
+
+# ignore target files
+target/**
+**/target/**
 
 # ignore ide
 *.iml

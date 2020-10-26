@@ -1,14 +1,13 @@
 #!/bin/bash
 
+WILDFLY_VERSION=21.0.0.Final
+
 # download wildfly
-wget https://download.jboss.org/wildfly/18.0.0.Final/wildfly-18.0.0.Final.zip
+wget https://download.jboss.org/wildfly/${WILDFLY_VERSION}/wildfly-${WILDFLY_VERSION}.zip
 
 # extract to wildfly folder
-unzip wildfly-18.0.0.Final.zip
-mv wildfly-18.0.0.Final wildfly
+unzip wildfly-${WILDFLY_VERSION}.zip
+mv wildfly-${WILDFLY_VERSION} wildfly
 
 # remove artifact
-rm -rf wildfly-18.0.0.Final.zip
-
-# setup ejb application user
-wildfly/bin/add-user.sh -a -u ejb -p ejb -e
+rm -rf wildfly-${WILDFLY_VERSION}.zip
