@@ -2,6 +2,6 @@ package com.tier.one.service;
 
 import javax.ws.rs.ApplicationPath;
 
-@ApplicationPath("/rest")
+@ApplicationPath("/api")
 public class Application extends javax.ws.rs.core.Application {
 }

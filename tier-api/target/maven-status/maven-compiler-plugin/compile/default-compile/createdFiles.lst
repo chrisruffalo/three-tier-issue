@@ -1,5 +1,6 @@
 com/tier/config/Config.class
 com/tier/api/FrontInterface.class
+com/tier/api/RecuringInterface.class
 com/tier/api/BackendInterface.class
 com/tier/client/EJBClient.class
 com/tier/api/GatewayInterface.class

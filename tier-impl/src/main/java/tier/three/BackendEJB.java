@@ -6,10 +6,11 @@ import org.slf4j.LoggerFactory;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import java.util.Date;
 
 @Remote(BackendInterface.class)
-@Stateful
+@Stateless
 public class BackendEJB implements BackendInterface {
 
     private static final Logger logger = LoggerFactory.getLogger(BackendEJB.class);

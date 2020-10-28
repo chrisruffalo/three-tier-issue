@@ -1,4 +1,6 @@
-tier/three/BackendEJB.class
 tier/one/FrontLocal.class
+tier/recur/RecurLocal.class
 tier/two/GatewayEJB.class
 tier/one/FrontEJB.class
+tier/three/BackendEJB.class
+tier/recur/RecurEJB.class

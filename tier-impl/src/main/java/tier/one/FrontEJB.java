@@ -9,16 +9,17 @@ import tier.two.GatewayEJB;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 
 @Local(FrontLocal.class)
 @Remote(FrontInterface.class)
-@Stateful
-public class FrontEJB extends EJBClient implements FrontInterface {
+@Stateless
+public class FrontEJB implements FrontLocal {
 
     private static final Logger logger = LoggerFactory.getLogger(FrontEJB.class);
 
     public String ask(final String protocol) {
         logger.info("TIER ONE on HOST: {}", System.getProperty("jboss.node.name", ""));
-        return this.lookup(protocol, GatewayEJB.class, GatewayInterface.class).ask(protocol);
+        return EJBClient.lookup(protocol, GatewayEJB.class, GatewayInterface.class).ask(protocol);
     }
 }
