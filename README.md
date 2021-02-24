@@ -5,11 +5,8 @@ There is an issue when using EJB calls that use "pure http" remoting with HTTPS 
 second remote EJB but there is an exception thrown when the second remote EJB invokes the third.
 
 ## Impacted Versions
-* EAP 7.2.x
-* EAP 7.3.x
-* Wildfly 18
-* Wildfly 21
-* Wildfly 22 beta with EJB HTTP client 1.1.3.Final
+* EAP <= 7.3.5.GA
+* Wildfly <= 22.0.1.Final 
 
 ## Outline
 This is a minimal reproduction that configures and launch EAP. It includes three EJBs and a REST service to start the
